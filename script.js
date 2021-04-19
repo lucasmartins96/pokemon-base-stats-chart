@@ -4,7 +4,7 @@ const getPokemon = async (pokemonName) => {
   .catch((error) => error);
 }
 
-const configureData = (stats, pokemonName) => {
+const configureChartData = (stats, pokemonName) => {
   const baseStats = stats.map((stat) => stat.base_stat);
   const [hp, atk, def, spAtk, spDef, speed] = baseStats;
   return {
@@ -43,15 +43,21 @@ const configureChart = (callback, stats, pokemonName) => {
   }
 };
 
-const fetchPokemon = () => {
+const addEventButton = () => {
   const button = document.querySelector('button');
-  button.addEventListener('click', async () => {
+  button.addEventListener('click', fetchPokemon)
+}
+
+const fetchPokemon = async () => {
+  try {
     const chart = document.getElementById('myChart');
     if (chart) chart.remove(); 
-    const inputText = document.querySelector('input').value;
+    const inputText = document.querySelector('input').value.toLowerCase();
     const pokemon = await getPokemon(inputText);
-    await renderChart(pokemon);
-  });
+    renderChart(pokemon);
+  } catch (error) {
+    alert('Pokémon inválido');
+  }
 }
 
 const createCanvas = () => {
@@ -62,21 +68,17 @@ const createCanvas = () => {
   return canvas;
 }
 
-const renderChart = async (pokemon) => {
-  try {
-    //pokemon request
-    const { stats, name } = pokemon;
-    const nameCapitalizing = name.replace(/^\w/, name[0].toUpperCase());
+const renderChart = (pokemon) => {
+  //pokemon request
+  const { stats, name } = pokemon;
+  const nameCapitalizing = name.replace(/^\w/, name[0].toUpperCase());
 
-    //chart.js
-    const newCanvas = createCanvas();
-    const chartConfigurations = configureChart(configureData, stats, nameCapitalizing);
-    const myChart = new Chart(newCanvas, chartConfigurations);
-  } catch (error) {
-    alert('Pokémon inválido');
-  }
+  //create new chart
+  const newCanvas = createCanvas();
+  const chartConfigurations = configureChart(configureChartData, stats, nameCapitalizing);
+  const myChart = new Chart(newCanvas, chartConfigurations);
 };
 
 window.onload = () => {
-  fetchPokemon();
+  addEventButton();
 };
