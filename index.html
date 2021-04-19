@@ -15,17 +15,21 @@
 </head>
 <body>
   <div class="container">
-    <div id="color1" class="row justify-content-md-center align-items-center">
-      <div id="color2" class="col-md-8">
+    <div id="container2" class="row justify-content-md-center align-items-md-center">
+      <div id="container3" class="col-md-8">
+        <section id="inf" class="text-center">
+          <h1>Pokémon Base-Stats Chart</h1>
+          <p>Informe o nome do seu pókemon favorito e descubra o seu base-stat</p>
+        </section>
         <section class="input-pokemon">
           <div class="input-group input-group-lg">
             <div class="input-group-prepend">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon1">buscar</button>
+              <button class="btn btn-outline-info" type="button" id="button-addon1">buscar</button>
             </div>
-            <input type="text" class="form-control" placeholder="Insira o pokémon" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input type="text" class="form-control" placeholder="Digite seu pokémon" aria-label="Example text with button addon" aria-describedby="button-addon1">
           </div>
         </section>
-        <section class="chart">
+        <section id="chart-container">
           <canvas id="myChart"></canvas>
         </section>
       </div>

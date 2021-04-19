@@ -1,19 +1,40 @@
 /* div {
   width: 500px;
 } */
+:root {
+  --navy-blue: #03045eff;
+  --dark-cornflower-blue: #023e8aff;
+  --star-command-blue: #0077b6ff;
+  --blue-green: #0096c7ff;
+  --cerulean-crayola: #00b4d8ff;
+  --sky-blue-crayola: #48cae4ff;
+  --sky-blue-crayola-2: #90e0efff;
+  --blizzard-blue: #ade8f4ff;
+  --powder-blue: #caf0f8ff;
+}
+
 body{
-  background-color: dodgerblue
+  background-color: var(--powder-blue);
 }
 
-#color1{
+/* #container2{
   height: 100vh;
+} */
+
+/* #inf {
+  color: var(--powder-blue)
+}
+ */
+#container3{
+  background-color: var(--blizzard-blue);
+  padding: 50px;
+  /* height: 100vh; */
 }
 
-#color2{
-  background-color: papayawhip;
-}
-
-.chart{
-  background-color: mediumturquoise;
-  width: 100%;
+#chart-container{
+  /* background-color: mediumturquoise; */
+  width: 78%;
+  /* height: 75vh; */
+  /* position: relative; */
+  margin: 30px auto 0 auto;
 }
