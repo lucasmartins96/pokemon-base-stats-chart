@@ -9,9 +9,9 @@ Você pode visitar a página por [aqui](https://lucasmartins96.github.io/pokemon
 ## Instruções
 
 1. Informe o nome do pokémon em inglês.
-2. Se preferir, informe o número do pokémon da National Dex (Informe 1 e não 001)
-3. Caso não saiba o número e o nome, consulte por [aqui](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number)
+2. Se preferir, informe o número do pokémon da National Dex (Informe 1 e não 001).
+3. Caso não saiba o número e o nome, consulte por [aqui](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number).
 
 ## Considerações
 - O site simplesmente consome a api e retorna o base-stats que está guardado na API. Não leva em consideração base-stats por nível.
-- Toda crítica e melhorias são bem vindas.
+- Feedbacks são bem-vindos.
