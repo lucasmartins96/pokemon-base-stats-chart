@@ -3,15 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Radar chart Pokemon Base Stats</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <!-- chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <!-- my style  -->
   <link rel="stylesheet" href="style.css">
+
+  <title>Radar chart Pokemon Base Stats</title>
 </head>
 <body>
-  <div>
-    <canvas id="myChart"></canvas>
+  <div class="container">
+    <div id="color1" class="row justify-content-md-center align-items-center">
+      <div id="color2" class="col-md-8">
+        <section class="input-pokemon">
+          <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon1">buscar</button>
+            </div>
+            <input type="text" class="form-control" placeholder="Insira o pokémon" aria-label="Example text with button addon" aria-describedby="button-addon1">
+          </div>
+        </section>
+        <section class="chart">
+          <canvas id="myChart"></canvas>
+        </section>
+      </div>
+    </div>
+    
   </div>
+  <!-- Scripts bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- my script  -->
   <script src="script.js"></script>
 </body>
 </html>
