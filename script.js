@@ -1,15 +1,16 @@
-/* const getPokemon = async () => {
-  return fetch('https://pokeapi.co/api/v2/pokemon/1/')
+const getPokemon = async (pokemonName) => {
+  return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
     .then((response) => response.json())
-} */
+}
 
-
-const configureData = () => {
+const configureData = (stats, pokemonName) => {
+  const baseStats = stats.map((stat) => stat.base_stat);
+  const [hp, atk, def, spAtk, spDef, speed] = baseStats;
   return {
     labels: ['HP', 'Attack', 'Special Attack', 'Speed', 'Special Defense', 'Defense'],
     datasets: [{
-      label: '{pokemon}',
-      data: [70, 80, 60, 50, 80, 100],
+      label: `${pokemonName}`,
+      data: [hp, atk, spAtk, speed, spDef, def],
       fill: true,
       backgroundColor: 'rgb(3, 4, 94, 0.2)',
       borderColor: '#03045eff',
@@ -21,10 +22,10 @@ const configureData = () => {
   }
 };
 
-const configureChart = (data) => {
+const configureChart = (callback, stats, pokemonName) => {
   return {
     type: 'radar',
-    data: data,
+    data: callback(stats, pokemonName),
     options: {
       elements: {
         line: {
@@ -34,7 +35,7 @@ const configureChart = (data) => {
       plugins: {
         title: {
             display: true,
-            text: '{Pokemon} Base Stats'
+            text: `${pokemonName} Base Stats`
         }
       }
       /* layout: {
@@ -46,13 +47,25 @@ const configureChart = (data) => {
   }
 };
 
-const renderChart = () => {
+const fetchPokemon = () => {
+  const button = document.querySelector('button');
+  button.addEventListener('click', async () => {
+    const inputText = document.querySelector('input').value;
+    const pokemon = await getPokemon(inputText);
+    await renderChart(pokemon);
+  });
+}
+
+const renderChart = async (pokemon) => {
+  //pokemon request
+  const { stats, name } = pokemon;
+  //chart.js
   const ctx = document.getElementById('myChart');
-  const data = configureData();
-  const chartConfigurations = configureChart(data);
+  const chartConfigurations = configureChart(configureData, stats, name);
   const myChart = new Chart(ctx, chartConfigurations);
 };
 
 window.onload = () => {
-  renderChart();
+  fetchPokemon();
+  // renderChart();
 };
