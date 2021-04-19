@@ -5,18 +5,15 @@ body{
   background-color: dodgerblue
 }
 
-.chart{
-  background-color: mediumturquoise;
-  /* width: 100%; */
-}
-
-/* .input-pokemon {
-  width: 700px;
-} */
 #color1{
   height: 100vh;
 }
 
 #color2{
   background-color: papayawhip;
+}
+
+.chart{
+  background-color: mediumturquoise;
+  width: 100%;
 }
