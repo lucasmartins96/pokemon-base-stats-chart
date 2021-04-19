@@ -13,5 +13,5 @@ Você pode visitar a página por [aqui](https://lucasmartins96.github.io/pokemon
 3. Caso não saiba o número e o nome, consulte por [aqui](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number).
 
 ## Considerações
-- O site simplesmente consome a api e retorna o base-stats que está guardado na API. Não leva em consideração base-stats por nível.
+- O site simplesmente consome a API e retorna o base-stats que está guardado na API. Não leva em consideração base-stats por nível e outros detalhes mais realísticos do jogo.
 - Feedbacks são bem-vindos.
