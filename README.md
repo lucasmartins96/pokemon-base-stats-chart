@@ -2,7 +2,7 @@
 
 Olá seja bem vindo a esse repositório. 
 
-Informe o nome do pókemon e a página exibirá no gráfico de radar o base-stats do pókemon. A paǵina utiliza as seguintes bibliotecas: [bootstrap](https://getbootstrap.com/) (estilização e estruturação da página) e [chart.js](https://www.chartjs.org/) (exibição do gráfico).
+Informe o nome do pókemon e a página exibirá no gráfico de radar o base-stats do pókemon. O base-stats são recuperados realizando requisições na API [pokeapi.co](https://pokeapi.co/). A paǵina utiliza as seguintes bibliotecas: [bootstrap](https://getbootstrap.com/) (estilização e estruturação da página) e [chart.js](https://www.chartjs.org/) (exibição do gráfico).
 
 ## Instruções
 
