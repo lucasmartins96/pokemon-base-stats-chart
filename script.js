@@ -1,6 +1,7 @@
 const getPokemon = async (pokemonName) => {
   return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-    .then((response) => response.json())
+  .then((response) => response.json())
+  .catch((error) => error);
 }
 
 const configureData = (stats, pokemonName) => {
@@ -38,11 +39,6 @@ const configureChart = (callback, stats, pokemonName) => {
             text: `${pokemonName} Base Stats`
         }
       }
-      /* layout: {
-        padding: {
-            bottom: 150
-        }
-      } */
     },
   }
 };
@@ -50,22 +46,37 @@ const configureChart = (callback, stats, pokemonName) => {
 const fetchPokemon = () => {
   const button = document.querySelector('button');
   button.addEventListener('click', async () => {
+    const chart = document.getElementById('myChart');
+    if (chart) chart.remove(); 
     const inputText = document.querySelector('input').value;
     const pokemon = await getPokemon(inputText);
     await renderChart(pokemon);
   });
 }
 
+const createCanvas = () => {
+  const chartContainer = document.getElementById('chart-container');
+  const canvas = document.createElement('canvas');
+  canvas.id = 'myChart';
+  chartContainer.appendChild(canvas);
+  return canvas;
+}
+
 const renderChart = async (pokemon) => {
-  //pokemon request
-  const { stats, name } = pokemon;
-  //chart.js
-  const ctx = document.getElementById('myChart');
-  const chartConfigurations = configureChart(configureData, stats, name);
-  const myChart = new Chart(ctx, chartConfigurations);
+  try {
+    //pokemon request
+    const { stats, name } = pokemon;
+    const nameCapitalizing = name.replace(/^\w/, name[0].toUpperCase());
+
+    //chart.js
+    const newCanvas = createCanvas();
+    const chartConfigurations = configureChart(configureData, stats, nameCapitalizing);
+    const myChart = new Chart(newCanvas, chartConfigurations);
+  } catch (error) {
+    alert('Pokémon inválido');
+  }
 };
 
 window.onload = () => {
   fetchPokemon();
-  // renderChart();
 };
