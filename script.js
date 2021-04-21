@@ -18,7 +18,7 @@ const configureChartData = (stats, pokemonName) => {
       pointBackgroundColor: '#fff',
       pointBorderColor: '#03045eff',
       pointHoverBackgroundColor: '#03045eff',
-      // pointHoverBorderColor: '#fff'
+      pointHoverBorderColor: '#fff'
     }]
   }
 };
