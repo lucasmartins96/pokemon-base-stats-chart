@@ -75,7 +75,7 @@ const renderChart = (pokemon) => {
 
   //create new chart
   const newCanvas = createCanvas();
-  const chartConfigurations = configureChart(configureChartData, stats, nameCapitalizing);
+  const chartConfigurations = configureChart(stats, nameCapitalizing);
   const myChart = new Chart(newCanvas, chartConfigurations);
 };
 
