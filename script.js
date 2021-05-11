@@ -26,7 +26,7 @@ const configureChartData = (stats, pokemonName) => {
 const configureChart = (stats, pokemonName) => {
   return {
     type: 'radar',
-    data: callback(stats, pokemonName),
+    data: configureChartData(stats, pokemonName),
     options: {
       elements: {
         line: {
