@@ -23,7 +23,7 @@ const configureChartData = (stats, pokemonName) => {
   }
 };
 
-const configureChart = (callback, stats, pokemonName) => {
+const configureChart = (stats, pokemonName) => {
   return {
     type: 'radar',
     data: callback(stats, pokemonName),
